@@ -3,14 +3,24 @@
   "version": "1.0.0",
   "description": "Campus issue reporting and resolution platform (MERN Stack)",
   "scripts": {
+    "build": "npm run install:all && npm run build:client",
     "install:all": "npm install --prefix server && npm install --prefix client",
     "build:client": "npm run build --prefix client",
-    "build": "npm run install:all && npm run build:client",
     "start": "npm start --prefix server",
-    "server": "npm start --prefix server",
-    "client": "npm run dev --prefix client",
     "seed": "npm run seed --prefix server",
     "test": "npm test --prefix server"
+  },
+  "dependencies": {
+    "bcryptjs": "^3.0.3",
+    "cookie-parser": "^1.4.7",
+    "cors": "^2.8.6",
+    "dotenv": "^18.0.9",
+    "express": "^5.3.0",
+    "express-rate-limit": "^8.7.1",
+    "jsonwebtoken": "^9.0.3",
+    "mongoose": "^9.11.4",
+    "multer": "^2.5.0",
+    "zod": "^4.6.7"
   },
   "keywords": ["mern", "campusfix", "react", "express", "mongodb"],
   "author": "",

@@ -1,0 +1,41 @@
+{
+  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "services": {
+    "campusfix-web": {
+      "root": "client",
+      "framework": "vite",
+      "bindings": [
+        {
+          "type": "service",
+          "service": "campusfix-api",
+          "format": "url",
+          "env": "API_URL"
+        }
+      ]
+    },
+    "campusfix-api": {
+      "root": "server",
+      "framework": "express"
+    }
+  },
+  "rewrites": [
+    {
+      "source": "/api/(.*)",
+      "destination": {
+        "service": "campusfix-api"
+      }
+    },
+    {
+      "source": "/uploads/(.*)",
+      "destination": {
+        "service": "campusfix-api"
+      }
+    },
+    {
+      "source": "/(.*)",
+      "destination": {
+        "service": "campusfix-web"
+      }
+    }
+  ]
+}

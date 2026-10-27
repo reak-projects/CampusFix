@@ -297,7 +297,8 @@ export default function IssueDetailPage() {
             </h3>
             <div className="flex flex-wrap gap-3">
               {issue.attachments.map((url, idx) => {
-                const fullUrl = url.startsWith('http') ? url : `http://localhost:5001${url}`;
+                const serverBase = import.meta.env.VITE_SERVER_URL || '';
+                const fullUrl = url.startsWith('http') ? url : `${serverBase}${url}`;
                 return (
                   <div
                     key={idx}
