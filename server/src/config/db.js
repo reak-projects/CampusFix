@@ -12,6 +12,7 @@ const connectDB = async () => {
   try {
     const conn = await mongoose.connect(mongoUri, {
       driverInfo: { name: 'nodejs', version: process.version || '24.0.0' },
+      serverSelectionTimeoutMS: 5000, // 5s timeout for serverless
     });
     cachedConnection = conn;
     console.log('MongoDB connected');
